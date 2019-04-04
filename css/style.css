@@ -1,0 +1,32 @@
+/* Enter your custom styles here */
+
+.idTable1 tbody td:nth-child(even) {
+    background: rgb(245, 245, 245);
+}
+
+.sapMOHIcon .sapMImg {
+    max-height: 5rem;
+    max-width: 5rem;
+    border-radius: 100%;
+}
+
+.sapMOHTitle h1 {
+    -webkit-line-clamp: 3;
+    margin-left: 3rem;
+}
+
+.sapUiMedia-Std-Tablet .sapUxAPObjectPageHeaderContent,
+.sapUiMedia-Std-Desktop .sapMSplitContainer:not(.sapMSplitContainerHideMode) .sapMSplitContainerDetail .sapUxAPObjectPageHeaderContent,
+.sapUiMedia-Std-Tablet .sapMSplitContainer:not(.sapMSplitContainerHideMode) .sapMSplitContainerDetail .sapUxAPObjectPageHeaderContent,
+html .sapUiContainer-Medium .sapUxAPObjectPageHeaderContent {
+    padding-top: 2rem;
+    padding-left: 2rem;
+}
+
+.idTable1 tbody td:nth-child(even) {
+    background: rgb(245, 245, 245);
+}
+
+.redCol {
+	background: red !important;
+}

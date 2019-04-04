@@ -1,0 +1,88 @@
+<mvc:View controllerName="swa.rpos.controller.Detail" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:me="sap.me"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:forms="sap.ui.layout.form" xmlns:layout="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:t="sap.ui.table" xmlns:smartFilterBar="sap.ui.comp.smartfilterbar" xmlns:smartTable="sap.ui.comp.smarttable">
+	<Page id="page" enableScrolling="true" title="{i18n>detailTitle}">
+		<content>
+			<layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="__grid0" defaultSpan="XL3 L3 M4 S12">
+				<layout:content>
+					<VBox width="100%" class="sapUiMediumMarginTop">
+						<items>
+							<Label text="{i18n>fromDate}" width="100%" id="__label1" required="true"/>
+							<DatePicker id="firstDate" placeholder="Enter From Date ..." width="100%"/>
+						</items>
+					</VBox>
+					<VBox width="100%" class="sapUiMediumMarginTop">
+						<items>
+							<Label text="{i18n>toDate}" width="100%" id="__label2" required="true"/>
+							<DatePicker id="endDate" placeholder="Enter To Date ..." width="100%"/>
+						</items>
+					</VBox>
+					<VBox width="100%" class="sapUiMediumMarginTop">
+						<items>
+							<Label text="" width="100%"/>
+							<Button id="btnDisplay" text="Get Details" tap="getTransDetails" width="10em"/>
+						</items>
+					</VBox>
+				</layout:content>
+			</layout:Grid>
+			<layout:Grid defaultSpan="XL12 L12 M12 S12" class="sapUiMediumMarginTop">
+				<Table id="AttTable" inset="false" mergeDuplicates="true" alternateRowColors="true" items="{TransDetails>/Value}">
+					<headerToolbar>
+						<Toolbar>
+							<content>
+								<Title id="tableTitle" text="Transaction Details" level="H2"/>
+								<!--<ToolbarSpacer/>
+								<DatePicker id="firstDate1" placeholder="Enter From Date ..." />
+								<DatePicker id="endDate1" placeholder="Enter To Date ..." />-->
+							</content>
+						</Toolbar>
+					</headerToolbar>
+					<infoToolbar>
+						<Toolbar active="true" visible="false">
+							<Label id="openclosebal" text=""/>
+						</Toolbar>
+					</infoToolbar>
+					<columns>
+						<Column demandPopin="true" minScreenWidth="Tablet" mergeDuplicates="true" width="8em">
+							<Label text="{i18n>tdate}" tooltip="Subject"/>
+						</Column>
+						<Column mergeDuplicates="true">
+							<Label text="{i18n>transNo}"/>
+						</Column>
+						<!--	<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>itemNo}" tooltip="Academic Year"/>
+						</Column>-->
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>itemDel}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>transType}"/>
+						</Column>
+						<Column >
+							<Label text="{i18n>amt}"/>
+						</Column>
+						<Column demandPopin="true" minScreenWidth="Tablet">
+							<Label text="{i18n>bal}"/>
+						</Column>
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Text text="{path:'TransDetails>transDate',formatter: '.formatter.formatTransDate'}"/>
+								<Text text="{TransDetails>Transactionno}"/>
+								<!--<Text text="{TransDetails>Itemno}"/>-->
+								<Text text="{TransDetails>Itemno}. {TransDetails>Itemdescription}"/>
+								<Text text="{TransDetails>Typeoftrans}"/>
+								<ObjectNumber number="{ parts:[{path:'TransDetails>Amount'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+									unit="IDR"/>
+								<ObjectNumber number="{ parts:[{path:'TransDetails>Balance'}], type: 'sap.ui.model.type.Currency', formatOptions: {showMeasure: false} }"
+									unit="IDR"/>
+								<!--<Text text="{TransDetails>Balance}"/>-->
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</layout:Grid>
+		</content>
+	</Page>
+</mvc:View>
