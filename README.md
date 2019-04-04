@@ -1,2 +1,2 @@
 # ZRPOS
-Raptor POS
+Fiori Apps - Raptor POS
